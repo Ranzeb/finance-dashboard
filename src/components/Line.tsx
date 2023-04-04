@@ -31,7 +31,6 @@ export default function Line() {
 
     return (
         <>
-            <button onClick={randomizeData}>Randomize Data</button>
             <ResizableBox>
                 <Chart
                     options={{

@@ -1,4 +1,4 @@
-import { Table, TableContainer, Tbody, Td, Text, Tr } from '@chakra-ui/react';
+import { Table, TableContainer, Tbody, Td, Text, Tr, VStack } from '@chakra-ui/react';
 import emailTableInterface from '../interfaces/emailTableInterface';
 
 function EmailTable({ title, data }: { title: String, data: Array<emailTableInterface> }) {
@@ -12,25 +12,28 @@ function EmailTable({ title, data }: { title: String, data: Array<emailTableInte
 
     return (
         <>
-            <Text fontSize='2xl'>{title}</Text>
-            <TableContainer>
-                <Table variant='simple'>
-                    <Tbody>
-                        {emailData.map((item) => {
-                            console.log(item);
-                            return (
-                                <Tr>
-                                    <Td>{item.icon}</Td>
-                                    <Td>{item.name}</Td>
-                                    <Td>{item.description}</Td>
-                                    <Td>{item.time}</Td>
-                                </Tr>
-                            )
-                        })}
+            <VStack bg="#d0e1e9" textAlign='left' borderRadius={35} alignItems={"baseline"} w={'100%'}>
+                <Text as='b' pl={4} pt={4} fontSize='2xl' textAlign={'left'}>{title}</Text>
+                <TableContainer display={'contents'} alignItems={'center'}>
+                    <Table variant="unstyled" >
+                        <Tbody>
+                            {emailData.map((item) => {
+                                console.log(item);
+                                return (
+                                    <Tr>
+                                        <Td>{item.icon}</Td>
+                                        <Td>{item.name}</Td>
+                                        <Td>{item.description}</Td>
+                                        <Td>{item.time}</Td>
+                                    </Tr>
+                                )
+                            })}
 
-                    </Tbody>
-                </Table>
-            </TableContainer>
+                        </Tbody>
+                    </Table>
+                </TableContainer>
+            </VStack>
+
         </>
     )
 }

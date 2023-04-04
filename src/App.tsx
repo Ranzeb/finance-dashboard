@@ -2,10 +2,12 @@ import { CalendarIcon } from '@chakra-ui/icons';
 import { ChakraProvider, HStack, Stack, Text, VStack } from '@chakra-ui/react';
 import './App.css';
 import CardItem from './components/CardItem';
+import CardItemSlider from './components/CardItemSlider';
 import CardNotification from './components/CardNotification';
 import CardStatus from './components/CardStatus';
 import EmailTable from './components/EmailTable';
 import Line from './components/Line';
+import Navbar from './components/Navbar';
 import ToDoList from './components/ToDolist';
 import useLagRadar from './useLagRadar';
 
@@ -37,43 +39,48 @@ function App() {
 
   return (
     <ChakraProvider>
-      <Stack id='main-container' spacing={8} direction='row'>
-        <VStack spacing={10}>
-          <Text fontSize='3xl'>dappr</Text>
-          <CalendarIcon boxSize={10} />
-          <CalendarIcon boxSize={10} />
-          <CalendarIcon boxSize={10} />
-          <CalendarIcon boxSize={10} />
-          <CalendarIcon boxSize={10} />
-          <CalendarIcon boxSize={10} />
-          <CalendarIcon boxSize={10} />
-          <CalendarIcon boxSize={10} />
-        </VStack>
-        <VStack>
-          <HStack>
-            <CardItem title="New clients" value="54" />
-            <CardItem title="Invoices Overdue" value="6" />
-            <CardItem title="New clients" value="54" />
-            <CardItem title="Invoices Overdue" value="6" />
-          </HStack>
-          <HStack>
-            <VStack spacing={8}>
-              <CardItem title="New clients" value="54" />
-              <CardItem title="Invoices Overdue" value="6" />
-            </VStack>
-            <VStack spacing={8}>
-              <Line />
-            </VStack>
-          </HStack>
-          <EmailTable
-            title='Recent Emails'
-            data={emailData} />
-        </VStack>
-        <VStack spacing={8}>
-          <CardStatus title={title} status={status} progressStatus={progressStatus} description1={description1} description2={description2} />
-          <ToDoList data={toDoData} />
-          <CardNotification title="Board Meeting" description={notificationDescription} time={new Date()} />
-        </VStack>
+      <Stack bg="#dfecf1" >
+        <HStack width="54%" margin="auto">
+          <Navbar />
+        </HStack>
+        <Stack id='main-container' spacing={8} direction='row'>
+          <VStack spacing={10}>
+            <Text fontSize='3xl'>dappr</Text>
+            <CalendarIcon boxSize={10} />
+            <CalendarIcon boxSize={10} />
+            <CalendarIcon boxSize={10} />
+            <CalendarIcon boxSize={10} />
+            <CalendarIcon boxSize={10} />
+            <CalendarIcon boxSize={10} />
+            <CalendarIcon boxSize={10} />
+            <CalendarIcon boxSize={10} />
+          </VStack>
+          <VStack spacing={8}>
+            <HStack>
+              <CardItemSlider title="New clients" value="54" />
+              <CardItemSlider title="Invoices Overdue" value="6" />
+              <CardItemSlider title="New clients" value="54" />
+              <CardItemSlider title="Invoices Overdue" value="6" />
+            </HStack>
+            <HStack width={'100%'}>
+              <VStack spacing={4}>
+                <CardItem title="New clients" value="54" />
+                <CardItem title="Invoices Overdue" value="6" />
+              </VStack>
+              <VStack spacing={8} w={'100%'}>
+                <Line />
+              </VStack>
+            </HStack>
+            <EmailTable
+              title='Recent Emails'
+              data={emailData} />
+          </VStack>
+          <VStack spacing={8}>
+            <CardStatus title={title} status={status} progressStatus={progressStatus} description1={description1} description2={description2} />
+            <ToDoList data={toDoData} />
+            <CardNotification title="Board Meeting" description={notificationDescription} time={new Date()} />
+          </VStack>
+        </Stack>
       </Stack>
     </ChakraProvider >
   );
