@@ -37,7 +37,7 @@ export default function Nav() {
     const { isOpen, onOpen, onClose } = useDisclosure();
     return (
         <>
-            <Box bg="#d0e1e9" px={4} width="100%" mt={20}>
+            <Box bg="#dfecf1" px={4} width="100%" mt={20}>
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
                     <Box>Logo</Box>
 

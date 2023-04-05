@@ -1,5 +1,5 @@
 import { CalendarIcon } from '@chakra-ui/icons';
-import { HStack, Text, VStack } from '@chakra-ui/react';
+import { HStack, Text, VStack, Card } from '@chakra-ui/react';
 import { toDoListInterface } from '../interfaces/toDoListInterface';
 
 function ToDoList({ data }: { data: Array<toDoListInterface> }) {
@@ -11,13 +11,16 @@ function ToDoList({ data }: { data: Array<toDoListInterface> }) {
     ]
 
     return (
-        <VStack>
+        <VStack alignItems={'baseline'}>
+            <Text as='b' fontSize={'2xl'} mb={6}>Your to-Do list</Text>
             {toDoData.map((value: toDoListInterface) => {
                 return (
                     <HStack spacing={10}>
-                        <CalendarIcon boxSize={10} />
-                        <VStack>
-                            <Text>{value.title}</Text>
+                        <Card bg="#000000" textAlign="left" borderRadius={25} width={'70px'} height={'70px'} justifyContent={'center'} color='white' alignItems={'center'}>
+                            <CalendarIcon boxSize={7} />
+                        </Card>
+                        <VStack alignItems={'baseline'}>
+                            <Text as='b'>{value.title}</Text>
                             <Text>{value.time.toUTCString()}</Text>
                         </VStack>
                     </HStack>

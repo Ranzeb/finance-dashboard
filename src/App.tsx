@@ -8,6 +8,7 @@ import CardStatus from './components/CardStatus';
 import EmailTable from './components/EmailTable';
 import Line from './components/Line';
 import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
 import ToDoList from './components/ToDolist';
 import useLagRadar from './useLagRadar';
 
@@ -40,47 +41,40 @@ function App() {
   return (
     <ChakraProvider>
       <Stack bg="#dfecf1">
-        <HStack width="54%" margin="auto">
-          <Navbar />
+        <HStack width="54%" margin="auto" spacing={8}>
+          <Sidebar />
+          <VStack id='main-container' spacing={8} direction='row'>
+            <Navbar />
+            <HStack spacing={8}>
+              <VStack spacing={8}>
+                <HStack spacing={4}>
+                  <CardItemSlider title="Your bank balance" value="$143,624" iconName="MdOutlineAccountBalanceWallet" />
+                  <CardItemSlider title="Uncategorized transactions" value="12" iconName="FiPieChart" />
+                  <CardItemSlider title="Employees working today" value="7" iconName="TbCalendarTime" />
+                  <CardItemSlider title="This week's card spending" value="$3,287.49" iconName="BiCreditCard" />
+                </HStack>
+                <HStack width={'100%'}>
+                  <VStack spacing={4}>
+                    <CardItem title="New clients" value="54" percentage={'+18.7%'} growth={true} />
+                    <CardItem title="Invoices Overdue" value="6" percentage={'+2.7%'} growth={false} />
+                  </VStack>
+                  <VStack spacing={8} w={'100%'}>
+                    <Line />
+                  </VStack>
+                </HStack>
+                <EmailTable
+                  title='Recent Emails'
+                  data={emailData} />
+              </VStack>
+              <VStack spacing={8}>
+                <CardStatus title={title} status={status} progressStatus={progressStatus} description1={description1} description2={description2} />
+                <ToDoList data={toDoData} />
+                <CardNotification title="Board Meeting" description={notificationDescription} time={new Date()} />
+              </VStack>
+            </HStack>
+          </VStack>
         </HStack>
-        <Stack id='main-container' spacing={8} direction='row'>
-          <VStack spacing={10}>
-            <Text fontSize='3xl'>dappr</Text>
-            <CalendarIcon boxSize={10} />
-            <CalendarIcon boxSize={10} />
-            <CalendarIcon boxSize={10} />
-            <CalendarIcon boxSize={10} />
-            <CalendarIcon boxSize={10} />
-            <CalendarIcon boxSize={10} />
-            <CalendarIcon boxSize={10} />
-            <CalendarIcon boxSize={10} />
-          </VStack>
-          <VStack spacing={8}>
-            <HStack>
-              <CardItemSlider title="Your bank balance" value="$143,624" iconName="MdOutlineAccountBalanceWallet" />
-              <CardItemSlider title="Uncategorized transactions" value="12" iconName="FiPieChart" />
-              <CardItemSlider title="employees working today" value="7" iconName="TbCalendarTime" />
-              <CardItemSlider title="This week's card spending" value="$3,287.49" iconName="BiCreditCard" />
-            </HStack>
-            <HStack width={'100%'}>
-              <VStack spacing={4}>
-                <CardItem title="New clients" value="54" percentage={'+18.7%'} growth={true} />
-                <CardItem title="Invoices Overdue" value="6" percentage={'+2.7%'} growth={false} />
-              </VStack>
-              <VStack spacing={8} w={'100%'}>
-                <Line />
-              </VStack>
-            </HStack>
-            <EmailTable
-              title='Recent Emails'
-              data={emailData} />
-          </VStack>
-          <VStack spacing={8}>
-            <CardStatus title={title} status={status} progressStatus={progressStatus} description1={description1} description2={description2} />
-            <ToDoList data={toDoData} />
-            <CardNotification title="Board Meeting" description={notificationDescription} time={new Date()} />
-          </VStack>
-        </Stack>
+
       </Stack>
     </ChakraProvider >
   );
