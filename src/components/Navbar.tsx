@@ -1,22 +1,9 @@
-import { ReactNode } from 'react';
+import { CalendarIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import {
-    Box,
-    Flex,
-    Avatar,
-    Link,
-    Button,
-    Menu,
-    MenuButton,
-    MenuList,
-    MenuItem,
-    MenuDivider,
-    useDisclosure,
-    useColorModeValue,
-    Stack,
-    useColorMode,
-    Center,
+    Avatar, Box, Button, Center, Flex, Link, Menu,
+    MenuButton, MenuDivider, MenuItem, MenuList, Stack, Text, useColorMode, useColorModeValue, useDisclosure
 } from '@chakra-ui/react';
-import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { ReactNode } from 'react';
 
 const NavLink = ({ children }: { children: ReactNode }) => (
     <Link
@@ -39,14 +26,13 @@ export default function Nav() {
         <>
             <Box bg="#dfecf1" px={4} width="100%" mt={20}>
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-                    <Box>Logo</Box>
+                    <Box><Text as='b' fontSize={'4xl'}>Good Morning, James!</Text></Box>
 
                     <Flex alignItems={'center'}>
-                        <Stack direction={'row'} spacing={7}>
-                            <Button onClick={toggleColorMode}>
-                                {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-                            </Button>
-
+                        <Stack direction={'row'} spacing={7} alignItems='center'>
+                            <CalendarIcon boxSize={5} />
+                            <CalendarIcon boxSize={5} />
+                            <CalendarIcon boxSize={5} />
                             <Menu>
                                 <MenuButton
                                     as={Button}
@@ -55,8 +41,8 @@ export default function Nav() {
                                     cursor={'pointer'}
                                     minW={0}>
                                     <Avatar
-                                        size={'sm'}
-                                        src={'https://avatars.dicebear.com/api/male/username.svg'}
+                                        size={'md'}
+                                        src={'https://bit.ly/code-beast'}
                                     />
                                 </MenuButton>
                                 <MenuList alignItems={'center'}>
@@ -64,7 +50,7 @@ export default function Nav() {
                                     <Center>
                                         <Avatar
                                             size={'2xl'}
-                                            src={'https://avatars.dicebear.com/api/male/username.svg'}
+                                            src={'https://bit.ly/code-beast'}
                                         />
                                     </Center>
                                     <br />

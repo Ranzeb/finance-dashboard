@@ -1,5 +1,4 @@
-import { CalendarIcon } from '@chakra-ui/icons';
-import { ChakraProvider, HStack, Stack, Text, VStack } from '@chakra-ui/react';
+import { ChakraProvider, HStack, Stack, VStack } from '@chakra-ui/react';
 import './App.css';
 import CardItem from './components/CardItem';
 import CardItemSlider from './components/CardItemSlider';
