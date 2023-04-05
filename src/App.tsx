@@ -39,7 +39,7 @@ function App() {
 
   return (
     <ChakraProvider>
-      <Stack bg="#dfecf1" >
+      <Stack bg="#dfecf1">
         <HStack width="54%" margin="auto">
           <Navbar />
         </HStack>
@@ -57,15 +57,15 @@ function App() {
           </VStack>
           <VStack spacing={8}>
             <HStack>
-              <CardItemSlider title="New clients" value="54" />
-              <CardItemSlider title="Invoices Overdue" value="6" />
-              <CardItemSlider title="New clients" value="54" />
-              <CardItemSlider title="Invoices Overdue" value="6" />
+              <CardItemSlider title="Your bank balance" value="$143,624" iconName="MdOutlineAccountBalanceWallet" />
+              <CardItemSlider title="Uncategorized transactions" value="12" iconName="FiPieChart" />
+              <CardItemSlider title="employees working today" value="7" iconName="TbCalendarTime" />
+              <CardItemSlider title="This week's card spending" value="$3,287.49" iconName="BiCreditCard" />
             </HStack>
             <HStack width={'100%'}>
               <VStack spacing={4}>
-                <CardItem title="New clients" value="54" />
-                <CardItem title="Invoices Overdue" value="6" />
+                <CardItem title="New clients" value="54" percentage={'+18.7%'} growth={true} />
+                <CardItem title="Invoices Overdue" value="6" percentage={'+2.7%'} growth={false} />
               </VStack>
               <VStack spacing={8} w={'100%'}>
                 <Line />

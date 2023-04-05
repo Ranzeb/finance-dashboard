@@ -16,3 +16,13 @@ code {
   position: relative;
   top: 25%;
 }
+
+#card-item-badge {
+  font-size: 13px;
+  line-height: 25px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 60px;
+  height: 25px;
+  text-align: center;
+}
