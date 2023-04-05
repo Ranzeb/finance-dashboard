@@ -1,8 +1,10 @@
 import { CalendarIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import {
     Avatar, Box, Button, Center, Flex, Link, Menu,
-    MenuButton, MenuDivider, MenuItem, MenuList, Stack, Text, useColorMode, useColorModeValue, useDisclosure
+    MenuButton, MenuDivider, MenuItem, MenuList, Stack, Text, useColorMode, useColorModeValue, useDisclosure, Icon
 } from '@chakra-ui/react';
+
+import { SlArrowDown } from 'react-icons/sl';
 import { ReactNode } from 'react';
 
 const NavLink = ({ children }: { children: ReactNode }) => (
@@ -34,16 +36,17 @@ export default function Nav() {
                             <CalendarIcon boxSize={5} />
                             <CalendarIcon boxSize={5} />
                             <Menu>
+                                <Avatar
+                                    size={'md'}
+                                    src={'https://bit.ly/code-beast'}
+                                />
                                 <MenuButton
                                     as={Button}
                                     rounded={'full'}
                                     variant={'link'}
                                     cursor={'pointer'}
                                     minW={0}>
-                                    <Avatar
-                                        size={'md'}
-                                        src={'https://bit.ly/code-beast'}
-                                    />
+                                    <Icon as={SlArrowDown} boxSize={5} />
                                 </MenuButton>
                                 <MenuList alignItems={'center'}>
                                     <br />
