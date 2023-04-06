@@ -1,12 +1,10 @@
-import { CalendarIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import {
-    Avatar, Box, Button, Center, Flex, Link, Menu,
-    MenuButton, MenuDivider, MenuItem, MenuList, Stack, Text, useColorMode, useColorModeValue, useDisclosure, Icon
+    Avatar, Box, Button, Center, Flex, Icon, Menu,
+    MenuButton, MenuDivider, MenuItem, MenuList, Stack, Text
 } from '@chakra-ui/react';
 
-import { RxCalendar, RxChatBubble, RxBell } from 'react-icons/rx'
+import { RxBell, RxCalendar, RxChatBubble } from 'react-icons/rx';
 import { SlArrowDown } from 'react-icons/sl';
-import { ReactNode } from 'react';
 
 export default function Nav() {
 
@@ -14,8 +12,9 @@ export default function Nav() {
         <>
             <Box bg="#dfecf1" px={4} width="100%" mt={20}>
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-                    <Box><Text as='b' fontSize={'4xl'}>Good Morning, James!</Text></Box>
-
+                    <Box>
+                        <Text as='b' fontSize={'4xl'}>Good Morning, James!</Text>
+                    </Box>
                     <Flex alignItems={'center'}>
                         <Stack direction={'row'} spacing={7} alignItems='center'>
                             <Icon as={RxCalendar} boxSize={6} />

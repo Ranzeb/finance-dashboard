@@ -1,4 +1,4 @@
-import { ChakraProvider, HStack, Stack, VStack } from '@chakra-ui/react';
+import { ChakraProvider, HStack, Stack, VStack, Box, Icon } from '@chakra-ui/react';
 import './App.css';
 import CardItem from './components/CardItem';
 import CardItemSlider from './components/CardItemSlider';
@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import ToDoList from './components/ToDolist';
 import useLagRadar from './useLagRadar';
+import { RiArrowDropLeftLine, RiArrowDropRightLine } from 'react-icons/ri';
 
 function App() {
 
@@ -46,6 +47,10 @@ function App() {
             <Navbar />
             <HStack spacing={8}>
               <VStack spacing={8}>
+                <Box position={'absolute'}>
+                  <Icon as={RiArrowDropLeftLine} boxSize={5} />
+                  <Icon as={RiArrowDropRightLine} boxSize={5} />
+                </Box>
                 <HStack spacing={4}>
                   <CardItemSlider title="Your bank balance" value="$143,624" iconName="MdOutlineAccountBalanceWallet" />
                   <CardItemSlider title="Uncategorized transactions" value="12" iconName="FiPieChart" />
