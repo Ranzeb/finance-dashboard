@@ -1,20 +1,45 @@
-import { ChakraProvider, HStack, Stack, VStack, Box, Icon } from '@chakra-ui/react';
+import { ChakraProvider, HStack, Stack, VStack, Box, Icon, Text, Card } from '@chakra-ui/react';
 import './App.css';
 import CardItem from './components/CardItem';
 import CardItemSlider from './components/CardItemSlider';
 import CardNotification from './components/CardNotification';
 import CardStatus from './components/CardStatus';
 import EmailTable from './components/EmailTable';
-import Line from './components/Line';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import ToDoList from './components/ToDolist';
 import useLagRadar from './useLagRadar';
 import { RiArrowDropLeftLine, RiArrowDropRightLine } from 'react-icons/ri';
+import TestChart from './components/TestChart';
+import MyChart from './components/TestChart';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import { Line } from "react-chartjs-2";
+import { faker } from '@faker-js/faker';
+
 
 function App() {
 
   useLagRadar();
+
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+  );
+
 
   const emailData = [
     { icon: 1, name: "Hannah Morgan", description: "Meeting scheduled", time: "1:24 PM" },
@@ -37,6 +62,35 @@ function App() {
   const description2 = "4 - 5 business day";
   const status = "In progress";
   const progressStatus = 30;
+
+
+  const options = {
+    responsive: true,
+    plugins: {
+    },
+  };
+
+  const labels = ['Feb 14', 'Feb 15', 'Feb 16', 'Feb 17', 'Feb 18', 'Feb 19', 'Feb 20'];
+
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: 'Dataset 1',
+        data: labels.map(() => faker.datatype.number({ min: 0, max: 20000 })),
+        borderColor: 'black',
+        fill: false,
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      },
+      {
+        label: 'Dataset 2',
+        data: labels.map(() => faker.datatype.number({ min: 0, max: 20000 })),
+        borderColor: 'rgb(53, 162, 235)',
+        fill: false,
+        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+      },
+    ],
+  };
 
   return (
     <ChakraProvider>
@@ -63,7 +117,12 @@ function App() {
                     <CardItem title="Invoices Overdue" value="6" percentage={'+2.7%'} growth={false} />
                   </VStack>
                   <VStack spacing={8} w={'100%'}>
-                    <Line />
+                    <Card bg="#d0e1e9" width={'100%'} height={'100%'} textAlign='left' borderRadius={35}>
+                      <VStack ml={8} mt={4} display={'inline-grid'} mb={5} mr={8}>
+                        <Text as='b' fontSize={'2xl'}>Revenue</Text>
+                        <Line options={options} data={data} />
+                      </VStack>
+                    </Card>
                   </VStack>
                 </HStack>
                 <EmailTable
@@ -78,7 +137,6 @@ function App() {
             </HStack>
           </VStack>
         </HStack>
-
       </Stack>
     </ChakraProvider >
   );

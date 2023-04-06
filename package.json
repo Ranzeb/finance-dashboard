@@ -7,6 +7,7 @@
     "@chakra-ui/react": "^2.5.5",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@faker-js/faker": "^7.6.0",
     "@react-hook/window-size": "^3.1.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -17,7 +18,7 @@
     "@types/react-dom": "^18.0.11",
     "framer-motion": "^10.10.0",
     "react": "^18.2.0",
-    "react-charts": "^3.0.0-beta.54",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "react-resizable": "^3.0.5",
@@ -48,5 +49,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/faker": "^6.6.9",
+    "faker": "^5.5.3"
   }
 }

@@ -15,8 +15,8 @@ function Sidebar() {
                 <Box position={'absolute'} top={1} marginTop={20}>
                     <Text fontSize='2xl' as='b' color='white'>dappr</Text>
                 </Box>
-                <Box position={'absolute'} marginRight={90} background={'black'} id='dropdown-sidebar'>
-                    <Icon as={IoIosArrowDroprightCircle} boxSize={8} color='white' />
+                <Box position={'absolute'} marginRight={90} id='dropdown-sidebar'>
+                    <Icon as={IoIosArrowDroprightCircle} boxSize={8} color='white' id='dropdown-sidebar-icon' />
                 </Box>
                 <VStack spacing={10}>
                     <Icon as={HiOutlineHome} boxSize={8} color='white' />

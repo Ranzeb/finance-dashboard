@@ -57,7 +57,7 @@ const optionKeys = Object.keys(options) as (keyof typeof options)[];
 
 export default function useChartConfig({
     series,
-    datums = 10,
+    datums = 7,
     useR,
     show = [],
     count = 1,
@@ -199,9 +199,9 @@ function makeSeries(
     // const length = 5 + Math.round(Math.random() * 15)
     const length = datums;
     const min = 0;
-    const max = 100;
-    const rMin = 2;
-    const rMax = 20;
+    const max = 20;
+    const rMin = 0;
+    const rMax = 0;
     const nullChance = 0;
     return {
         label: `Series ${i + 1}`,
