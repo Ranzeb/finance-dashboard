@@ -10,6 +10,20 @@ function ToDoList({ data }: { data: Array<toDoListInterface> }) {
         { title: "Finish onboarding Tony", time: new Date() },
     ]
 
+    const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    function formatAMPM(date: Date): string {
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = date.getHours() >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        var minutesString = minutes < 10 ? '0' + minutes : minutes;
+        var strTime = month[date.getMonth()] + " " + date.getUTCDate() + " at " + hours + ':' + minutesString + ' ' + ampm;
+
+        return strTime;
+    }
+
     return (
         <VStack alignItems={'baseline'}>
             <Text as='b' fontSize={'2xl'} mb={6}>Your to-Do list</Text>
@@ -21,7 +35,7 @@ function ToDoList({ data }: { data: Array<toDoListInterface> }) {
                         </Card>
                         <VStack alignItems={'baseline'}>
                             <Text as='b'>{value.title}</Text>
-                            <Text>{value.time.toUTCString()}</Text>
+                            <Text>{formatAMPM(value.time)}</Text>
                         </VStack>
                     </HStack>
                 )
