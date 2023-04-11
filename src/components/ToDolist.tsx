@@ -1,13 +1,17 @@
 import { CalendarIcon } from '@chakra-ui/icons';
-import { HStack, Text, VStack, Card } from '@chakra-ui/react';
+import { HStack, Text, VStack, Card, Icon } from '@chakra-ui/react';
 import { toDoListInterface } from '../interfaces/toDoListInterface';
+import { AiOutlineClockCircle } from 'react-icons/ai';
+import { TfiTicket } from 'react-icons/tfi';
+import { BsClipboardData, BsClipboardCheck } from 'react-icons/bs';
+
 
 function ToDoList({ data }: { data: Array<toDoListInterface> }) {
     const toDoData = [
-        { title: "Run Payroll", time: new Date() },
-        { title: "Review time off request", time: new Date() },
-        { title: "Sign board resolution", time: new Date() },
-        { title: "Finish onboarding Tony", time: new Date() },
+        { icon: AiOutlineClockCircle, title: "Run Payroll", time: new Date() },
+        { icon: TfiTicket, title: "Review time off request", time: new Date() },
+        { icon: BsClipboardData, title: "Sign board resolution", time: new Date() },
+        { icon: BsClipboardCheck, title: "Finish onboarding Tony", time: new Date() },
     ]
 
     const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -29,12 +33,12 @@ function ToDoList({ data }: { data: Array<toDoListInterface> }) {
             <Text as='b' fontSize={'2xl'} mb={6}>Your to-Do list</Text>
             {toDoData.map((value: toDoListInterface) => {
                 return (
-                    <HStack spacing={10}>
+                    <HStack spacing={5}>
                         <Card bg="#000000" textAlign="left" borderRadius={25} width={'70px'} height={'70px'} justifyContent={'center'} color='white' alignItems={'center'}>
-                            <CalendarIcon boxSize={7} />
+                            <Icon as={value.icon} boxSize={7} />
                         </Card>
                         <VStack alignItems={'baseline'}>
-                            <Text as='b'>{value.title}</Text>
+                            <Text as='b' fontSize={'xl'}>{value.title}</Text>
                             <Text>{formatAMPM(value.time)}</Text>
                         </VStack>
                     </HStack>

@@ -5,7 +5,7 @@ import {
 
 function CardItem({ title, value, percentage, growth }: { title: String, value: String, percentage: String, growth: Boolean }) {
     return (
-        <Card bg="#d0e1e9" height={150} width={250} textAlign='left' borderRadius={35}>
+        <Card bg="#d0e1e9" height={150} width={250} textAlign='left' borderRadius={35} flexGrow={1}>
             <VStack ml={8} mt={4} display={'inline-grid'}>
                 <Text as='b' fontSize={'xl'}>{title}</Text>
                 <HStack spacing={8}>

@@ -12,6 +12,8 @@ import useLagRadar from './useLagRadar';
 import { RiArrowDropLeftLine, RiArrowDropRightLine } from 'react-icons/ri';
 import TestChart from './components/TestChart';
 import MyChart from './components/TestChart';
+import { AiOutlineClockCircle } from 'react-icons/ai';
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -23,6 +25,8 @@ import {
 } from 'chart.js';
 import { Line } from "react-chartjs-2";
 import { faker } from '@faker-js/faker';
+import { TfiTicket } from 'react-icons/tfi';
+import { BsClipboardCheck, BsClipboardData } from 'react-icons/bs';
 
 
 function App() {
@@ -58,10 +62,10 @@ function App() {
   ]
 
   const toDoData = [
-    { title: "Run Payroll", time: new Date() },
-    { title: "Review time off request", time: new Date() },
-    { title: "Sign board resolution", time: new Date() },
-    { title: "Finish onboarding Tony", time: new Date() },
+    { icon: AiOutlineClockCircle, title: "Run Payroll", time: new Date() },
+    { icon: TfiTicket, title: "Review time off request", time: new Date() },
+    { icon: BsClipboardData, title: "Sign board resolution", time: new Date() },
+    { icon: BsClipboardCheck, title: "Finish onboarding Tony", time: new Date() },
   ]
 
   const notificationDescription = "You have been invited to a meeting of the Board Directors";
@@ -75,10 +79,17 @@ function App() {
 
   const options = {
     interaction: {
-      mode: 'index'
+      mode: "index" as "index"
     },
     responsive: true,
-    plugins: {
+    scales: {
+      x: {
+        // to remove the x-axis grid
+        grid: {
+          drawBorder: false,
+          display: false,
+        },
+      },
     },
   };
 
@@ -98,7 +109,7 @@ function App() {
       {
         label: 'Last week',
         data: labels.map(() => faker.datatype.number({ min: 0, max: 20000 })),
-        borderColor: 'rgb(53, 162, 235)',
+        borderColor: '#98bfd1',
         fill: false,
         lineTension: 0.5,
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
@@ -114,10 +125,10 @@ function App() {
           <VStack id='main-container' spacing={8} direction='row'>
             <Navbar />
             <HStack spacing={8}>
-              <VStack spacing={8}>
+              <VStack spacing={8} alignItems={'end'}>
                 <Box position={'absolute'}>
-                  <Icon as={RiArrowDropLeftLine} boxSize={5} />
-                  <Icon as={RiArrowDropRightLine} boxSize={5} />
+                  <Icon as={RiArrowDropLeftLine} boxSize={8} />
+                  <Icon as={RiArrowDropRightLine} boxSize={8} />
                 </Box>
                 <HStack spacing={4}>
                   <CardItemSlider title="Your bank balance" value="$143,624" iconName="MdOutlineAccountBalanceWallet" />
@@ -125,8 +136,8 @@ function App() {
                   <CardItemSlider title="Employees working today" value="7" iconName="TbCalendarTime" />
                   <CardItemSlider title="This week's card spending" value="$3,287.49" iconName="BiCreditCard" />
                 </HStack>
-                <HStack width={'100%'}>
-                  <VStack spacing={4}>
+                <HStack width={'100%'} height={'calc(25vh)'}>
+                  <VStack spacing={4} display={'flex'} flexDirection={'column'} height={'100%'}>
                     <CardItem title="New clients" value="54" percentage={'+18.7%'} growth={true} />
                     <CardItem title="Invoices Overdue" value="6" percentage={'+2.7%'} growth={false} />
                   </VStack>
