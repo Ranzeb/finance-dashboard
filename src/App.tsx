@@ -1,4 +1,4 @@
-import { ChakraProvider, HStack, Stack, VStack, Box, Icon, Text, Card } from '@chakra-ui/react';
+import { ChakraProvider, HStack, Stack, VStack, Box, Icon, Text, Card, extendTheme } from '@chakra-ui/react';
 import './App.css';
 import CardItem from './components/CardItem';
 import CardItemSlider from './components/CardItemSlider';
@@ -19,8 +19,7 @@ import {
   PointElement,
   LineElement,
   Title,
-  Tooltip,
-  Legend,
+  Tooltip
 } from 'chart.js';
 import { Line } from "react-chartjs-2";
 import { faker } from '@faker-js/faker';
@@ -30,16 +29,26 @@ function App() {
 
   useLagRadar();
 
-  ChartJS.register(
+  ChartJS.register([
     CategoryScale,
     LinearScale,
     PointElement,
     LineElement,
     Title,
-    Tooltip,
-    Legend
-  );
+    Tooltip
+  ]);
 
+  const customTheme = extendTheme({
+    components: {
+      Progress: {
+        baseStyle: {
+          filledTrack: {
+            bg: 'white'
+          }
+        }
+      }
+    }
+  })
 
   const emailData = [
     { icon: 1, name: "Hannah Morgan", description: "Meeting scheduled", time: "1:24 PM" },
@@ -65,6 +74,9 @@ function App() {
 
 
   const options = {
+    interaction: {
+      mode: 'index'
+    },
     responsive: true,
     plugins: {
     },
@@ -76,24 +88,26 @@ function App() {
     labels,
     datasets: [
       {
-        label: 'Dataset 1',
+        label: 'This week',
         data: labels.map(() => faker.datatype.number({ min: 0, max: 20000 })),
         borderColor: 'black',
         fill: false,
+        lineTension: 0.5,
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
       {
-        label: 'Dataset 2',
+        label: 'Last week',
         data: labels.map(() => faker.datatype.number({ min: 0, max: 20000 })),
         borderColor: 'rgb(53, 162, 235)',
         fill: false,
+        lineTension: 0.5,
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },
-    ],
+    ]
   };
 
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={customTheme}>
       <Stack bg="#dfecf1">
         <HStack width="54%" margin="auto" spacing={8}>
           <Sidebar />
@@ -129,7 +143,7 @@ function App() {
                   title='Recent Emails'
                   data={emailData} />
               </VStack>
-              <VStack spacing={8}>
+              <VStack spacing={12}>
                 <CardStatus title={title} status={status} progressStatus={progressStatus} description1={description1} description2={description2} />
                 <ToDoList data={toDoData} />
                 <CardNotification title="Board Meeting" description={notificationDescription} time={new Date()} />

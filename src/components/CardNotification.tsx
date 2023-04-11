@@ -15,8 +15,8 @@ function CardNotification({ title, description, time }: { title: String, descrip
         <Card bg="#000000" height={190} width={350} textAlign="left" borderRadius={35}>
             <CircleIcon id="green-light" boxSize={4} ml={4} color='green.400' />
             <CardHeader ml={10} mr={10} padding="0px">
-                <Text color={'white'}>{title}</Text>
-                <Text color={'grey'}>{time.toString()}</Text>
+                <Text color={'white'} as={'b'}>{title}</Text>
+                <Text color={'#d0e1e9'} mt={2}>{time.toString()}</Text>
                 <Text color={'grey'} mt={2}>{description}</Text>
             </CardHeader>
         </Card>
