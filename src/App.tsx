@@ -31,8 +31,6 @@ import { BsClipboardCheck, BsClipboardData } from 'react-icons/bs';
 
 function App() {
 
-  useLagRadar();
-
   ChartJS.register([
     CategoryScale,
     LinearScale,
