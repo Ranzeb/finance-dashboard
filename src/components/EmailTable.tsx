@@ -1,4 +1,4 @@
-import { Avatar, Table, TableContainer, Tbody, Td, Text, Tr, VStack, WrapItem } from '@chakra-ui/react';
+import { Avatar, Table, TableContainer, Tbody, Td, Text, Tr, VStack, WrapItem, Box } from '@chakra-ui/react';
 import emailTableInterface from '../interfaces/emailTableInterface';
 
 function EmailTable({ title, data }: { title: String, data: Array<emailTableInterface> }) {
@@ -12,10 +12,10 @@ function EmailTable({ title, data }: { title: String, data: Array<emailTableInte
 
     return (
         <>
-            <VStack bg="#d0e1e9" textAlign='left' borderRadius={35} alignItems={"baseline"} w={'100%'}>
+            <VStack bg="#d0e1e9" textAlign='left' borderRadius={35} alignItems={"baseline"} w={{ base: '50%', sm: '80%', md: '80%', lg: '100%' }}>
                 <Text as='b' pl={4} pt={4} fontSize='2xl' textAlign={'left'} mb={4}>{title}</Text>
-                <TableContainer display={'contents'} alignItems={'center'} textColor='#515960'>
-                    <Table variant="unstyled" >
+                <Box display={'contents'} alignItems={'center'} textColor='#515960'>
+                    <Table variant="unstyled" size={{ base: 'sm', md: 'md', lg: 'md' }}>
                         <Tbody>
                             {emailData.map((item) => {
                                 console.log(item);
@@ -46,7 +46,7 @@ function EmailTable({ title, data }: { title: String, data: Array<emailTableInte
                             })}
                         </Tbody>
                     </Table>
-                </TableContainer>
+                </Box>
             </VStack>
 
         </>

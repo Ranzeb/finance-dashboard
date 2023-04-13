@@ -14,8 +14,8 @@ function CardItem({ title, value, iconName }: { title: String, value: String, ic
     icons.set("BiCreditCard", BiCreditCard);
 
     return (
-        <Card bg="#d0e1e9" height={200} width={220} textAlign='left' borderRadius={35}>
-            <VStack mt={4} display={'inline-grid'}>
+        <Card bg="#d0e1e9" height={{ base: 200, xl: 250, '2xl': 200 }} width={{ base: 220, xl: 300, '2xl': 220 }} borderRadius={35} flex={{ base: '35%', sm: '35%', md: '35%', lg: '35%', xl: '50%', '2xl': '50%' }}>
+            <VStack mt={4} display={{ md: 'inline-grid' }}>
                 <Flex textAlign='center' w={'80%'} margin={'auto'}>
                     <Box>
                         <Icon as={icons.get(iconName)} boxSize={10} mt={'10px'} />
@@ -25,7 +25,7 @@ function CardItem({ title, value, iconName }: { title: String, value: String, ic
                         <Icon as={AiOutlineMore} boxSize={7} mt={'10px'} />
                     </Box>
                 </Flex>
-                <VStack display={'inline-grid'} textAlign='left'>
+                <VStack display={{ md: 'inline-grid' }} textAlign='left'>
                     <VStack ml={8} display={'inline-grid'}>
                         <Text as='b' fontSize={'3xl'}>{value}</Text>
                         <Box w={'60%'}>

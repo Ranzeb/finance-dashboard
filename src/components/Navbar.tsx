@@ -11,9 +11,9 @@ export default function Nav() {
     return (
         <>
             <Box bg="#dfecf1" px={4} width="100%" mt={20}>
-                <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-                    <Box>
-                        <Text as='b' fontSize={'4xl'}>Good Morning, James!</Text>
+                <Flex h={16} alignItems={'center'} direction={{ base: 'column', lg: 'row' }} justifyContent={'space-between'}>
+                    <Box mb={{ base: '10px' }} >
+                        <Text as='b' fontSize={{ lg: '4xl' }}>Good Morning, James!</Text>
                     </Box>
                     <Flex alignItems={'center'}>
                         <Stack direction={'row'} spacing={7} alignItems='center'>

@@ -1,4 +1,4 @@
-import { ChakraProvider, HStack, Stack, VStack, Box, Icon, Text, Card, extendTheme } from '@chakra-ui/react';
+import { ChakraProvider, HStack, Stack, VStack, Box, Icon, Text, Card, extendTheme, Flex } from '@chakra-ui/react';
 import CardItem from './components/CardItem';
 import CardItemSlider from './components/CardItemSlider';
 import CardNotification from './components/CardNotification';
@@ -115,49 +115,50 @@ export default function Dashboard() {
     };
 
     return (
-        <Stack bg="#dfecf1" borderRadius={'35px'} >
-            <HStack width="54%" margin="auto" spacing={8}>
+        <Stack bg="#dfecf1">
+            <HStack margin="auto" spacing={8}>
                 <Sidebar />
-                <VStack id='main-container' spacing={8} direction='row'>
+                <VStack id='main-container' spacing={8}>
                     <Navbar />
-                    <HStack spacing={8}>
-                        <VStack spacing={8} alignItems={'end'}>
-                            <Box position={'absolute'}>
+                    <Stack direction={{ md: 'column', sm: 'column', lg: 'column', '2xl': 'row' }} spacing={8}>
+                        <VStack spacing={8}>
+                            <Box position={'absolute'} alignItems={'end'}>
                                 <Icon as={RiArrowDropLeftLine} boxSize={8} />
                                 <Icon as={RiArrowDropRightLine} boxSize={8} />
                             </Box>
-                            <HStack spacing={4}>
+                            <Stack direction={{ base: 'column', sm: 'column', md: 'row', lg: 'row', '2xl': 'row' }} display={'flex'} flexWrap={{ sm: 'wrap', md: 'wrap', lg: 'wrap', xl: 'unset', '2xl': 'unset', base: 'wrap' }} spacing={4}>
                                 <CardItemSlider title="Your bank balance" value="$143,624" iconName="MdOutlineAccountBalanceWallet" />
                                 <CardItemSlider title="Uncategorized transactions" value="12" iconName="FiPieChart" />
                                 <CardItemSlider title="Employees working today" value="7" iconName="TbCalendarTime" />
                                 <CardItemSlider title="This week's card spending" value="$3,287.49" iconName="BiCreditCard" />
-                            </HStack>
-                            <HStack width={'100%'} height={'calc(25vh)'}>
+                            </Stack>
+                            <Stack direction={{ base: 'column', sm: 'column', md: 'column', lg: 'row', '2xl': 'row' }} width={'100%'} justifyContent={'center'} alignItems={'center'}>
                                 <VStack spacing={4} display={'flex'} flexDirection={'column'} height={'100%'}>
                                     <CardItem title="New clients" value="54" percentage={'+18.7%'} growth={true} />
                                     <CardItem title="Invoices Overdue" value="6" percentage={'+2.7%'} growth={false} />
                                 </VStack>
-                                <VStack spacing={8} w={'100%'}>
-                                    <Card bg="#d0e1e9" width={'100%'} height={'100%'} textAlign='left' borderRadius={35}>
+                                <VStack spacing={8} w={{ base: '80%', sm: '80%', md: '80%', lg: '50%', xl: '100%' }} >
+                                    <Card bg="#d0e1e9" textAlign='left' borderRadius={35} w={'100%'} h={'100%'}>
                                         <VStack ml={8} mt={4} display={'inline-grid'} mb={5} mr={8}>
                                             <Text as='b' fontSize={'2xl'}>Revenue</Text>
                                             <Line options={options} data={data} />
                                         </VStack>
                                     </Card>
                                 </VStack>
-                            </HStack>
+                            </Stack>
                             <EmailTable
                                 title='Recent Emails'
-                                data={emailData} />
+                                data={emailData}
+                            />
                         </VStack>
-                        <VStack spacing={12}>
+                        <Stack direction={{ base: 'column', sm: 'column', md: 'column', lg: 'row', '2xl': 'column' }} spacing={12} justifyContent={'center'} alignItems={'center'}>
                             <CardStatus title={title} status={status} progressStatus={progressStatus} description1={description1} description2={description2} />
                             <ToDoList data={toDoData} />
                             <CardNotification title="Board Meeting" description={notificationDescription} time={new Date()} />
-                        </VStack>
-                    </HStack>
+                        </Stack>
+                    </Stack>
                 </VStack>
             </HStack>
-        </Stack>
+        </Stack >
     );
 }

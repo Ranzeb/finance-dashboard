@@ -10,7 +10,7 @@ import { IoIosArrowDroprightCircle } from 'react-icons/io';
 
 function Sidebar() {
     return (
-        <Card bg="#000000" textAlign="left" height={'80vh'} width={'8vh'} borderRadius={15} position={'relative'} display={'flex'} justifyContent={'center'}>
+        <Card bg="#000000" textAlign="left" height={'1200px'} width={'120px'} borderRadius={15} position={'relative'} display={{ base: 'none', sm: 'none', md: 'none', lg: 'none', '2xl': 'flex' }} justifyContent={'center'}>
             <VStack display={'flex'} justifyContent={'space-between'}>
                 <Box position={'absolute'} top={1} marginTop={20}>
                     <Text fontSize='2xl' as='b' color='white'>dappr</Text>
