@@ -122,10 +122,10 @@ export default function Dashboard() {
                     <Navbar />
                     <Stack direction={{ md: 'column', sm: 'column', lg: 'column', '2xl': 'row' }} spacing={8}>
                         <VStack spacing={8}>
-                            <Box position={'absolute'} alignItems={'end'}>
+                            <Stack direction={'row'} w={'100%'} justifyContent={'end'}>
                                 <Icon as={RiArrowDropLeftLine} boxSize={8} />
                                 <Icon as={RiArrowDropRightLine} boxSize={8} />
-                            </Box>
+                            </Stack>
                             <Stack direction={{ base: 'column', sm: 'column', md: 'row', lg: 'row', '2xl': 'row' }} display={'flex'} flexWrap={{ sm: 'wrap', md: 'wrap', lg: 'wrap', xl: 'unset', '2xl': 'unset', base: 'wrap' }} spacing={4}>
                                 <CardItemSlider title="Your bank balance" value="$143,624" iconName="MdOutlineAccountBalanceWallet" />
                                 <CardItemSlider title="Uncategorized transactions" value="12" iconName="FiPieChart" />

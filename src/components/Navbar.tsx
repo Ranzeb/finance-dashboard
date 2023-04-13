@@ -5,6 +5,7 @@ import {
 
 import { RxBell, RxCalendar, RxChatBubble } from 'react-icons/rx';
 import { SlArrowDown } from 'react-icons/sl';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 export default function Nav() {
 
@@ -17,6 +18,7 @@ export default function Nav() {
                     </Box>
                     <Flex alignItems={'center'}>
                         <Stack direction={'row'} spacing={7} alignItems='center'>
+                            <Icon as={GiHamburgerMenu} boxSize={6} display={{ '2xl': 'none' }} />
                             <Icon as={RxCalendar} boxSize={6} />
                             <Icon as={RxChatBubble} boxSize={6} />
                             <Icon as={RxBell} boxSize={6} />

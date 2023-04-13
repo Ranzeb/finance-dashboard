@@ -9,8 +9,8 @@ function CardItem({ title, value, percentage, growth }: { title: String, value: 
             <VStack ml={8} mt={{ base: 4, lg: 8, xl: 8, '2xl': 4 }} display={'inline-grid'}>
                 <Text as='b' fontSize={{ base: 'xl', lg: '3xl', xl: '3xl', '2xl': 'xl' }}>{title}</Text>
                 <HStack spacing={8}>
-                    <Text as='b' fontSize={'6xl'}>{value}</Text>
-                    <Badge colorScheme={growth ? 'green' : 'red'} size='xl' borderRadius={5} id='card-item-badge'>{percentage}</Badge>
+                    <Text as='b' fontSize={{ base: '6xl', lg: '7xl', xl: '7xl', '2xl': '6xl' }}>{value}</Text>
+                    <Badge colorScheme={growth ? 'green' : 'red'} borderRadius={5} id='card-item-badge'>{percentage}</Badge>
                 </HStack>
             </VStack>
         </Card>
