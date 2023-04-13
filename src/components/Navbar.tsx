@@ -3,9 +3,9 @@ import {
     MenuButton, MenuDivider, MenuItem, MenuList, Stack, Text
 } from '@chakra-ui/react';
 
+import { GiHamburgerMenu } from 'react-icons/gi';
 import { RxBell, RxCalendar, RxChatBubble } from 'react-icons/rx';
 import { SlArrowDown } from 'react-icons/sl';
-import { GiHamburgerMenu } from 'react-icons/gi';
 
 export default function Nav() {
 

@@ -1,4 +1,4 @@
-import { Button, Card, CardBody, CardFooter, CardHeader, Progress, Text, VStack } from '@chakra-ui/react';
+import { Button, Card, CardBody, CardHeader, Progress, Text, VStack } from '@chakra-ui/react';
 
 function CardStatus({ title, description1, description2, status, progressStatus }: { title: String, description1: String, description2: String, status: String, progressStatus: number }) {
     return (

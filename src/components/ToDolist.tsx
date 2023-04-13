@@ -1,9 +1,8 @@
-import { CalendarIcon } from '@chakra-ui/icons';
-import { HStack, Text, VStack, Card, Icon } from '@chakra-ui/react';
-import { toDoListInterface } from '../interfaces/toDoListInterface';
+import { Card, HStack, Icon, Text, VStack } from '@chakra-ui/react';
 import { AiOutlineClockCircle } from 'react-icons/ai';
+import { BsClipboardCheck, BsClipboardData } from 'react-icons/bs';
 import { TfiTicket } from 'react-icons/tfi';
-import { BsClipboardData, BsClipboardCheck } from 'react-icons/bs';
+import { toDoListInterface } from '../interfaces/toDoListInterface';
 
 
 function ToDoList({ data }: { data: Array<toDoListInterface> }) {

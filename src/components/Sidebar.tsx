@@ -1,16 +1,22 @@
-import React from 'react'
-import { ChakraProvider, HStack, Stack, Text, VStack, Card, Icon, Box } from '@chakra-ui/react';
-import { CalendarIcon } from '@chakra-ui/icons';
+import { Box, Card, Icon, Text, VStack } from '@chakra-ui/react';
 import { CiSettings } from 'react-icons/ci';
-import { HiOutlineHome, HiOutlineChartSquareBar, HiOutlineMail, HiOutlineUserGroup, HiOutlineDocumentText } from 'react-icons/hi';
-import { RiMoneyEuroCircleLine } from 'react-icons/ri'
 import { FiHexagon } from 'react-icons/fi';
 import { GiGreekTemple } from 'react-icons/gi';
+import { HiOutlineChartSquareBar, HiOutlineDocumentText, HiOutlineHome, HiOutlineMail, HiOutlineUserGroup } from 'react-icons/hi';
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
+import { RiMoneyEuroCircleLine } from 'react-icons/ri';
 
 function Sidebar() {
     return (
-        <Card bg="#000000" textAlign="left" height={'1200px'} width={'120px'} borderRadius={15} position={'relative'} display={{ base: 'none', sm: 'none', md: 'none', lg: 'none', '2xl': 'flex' }} justifyContent={'center'}>
+        <Card
+            bg="#000000"
+            textAlign="left"
+            height={'1200px'}
+            width={'120px'}
+            borderRadius={15}
+            position={'relative'}
+            display={{ base: 'none', sm: 'none', md: 'none', lg: 'none', '2xl': 'flex' }}
+            justifyContent={'center'}>
             <VStack display={'flex'} justifyContent={'space-between'}>
                 <Box position={'absolute'} top={1} marginTop={20}>
                     <Text fontSize='2xl' as='b' color='white'>dappr</Text>

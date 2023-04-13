@@ -1,4 +1,4 @@
-import { Avatar, Table, TableContainer, Tbody, Td, Text, Tr, VStack, WrapItem, Box } from '@chakra-ui/react';
+import { Avatar, Box, Table, Tbody, Td, Text, Tr, VStack, WrapItem } from '@chakra-ui/react';
 import emailTableInterface from '../interfaces/emailTableInterface';
 
 function EmailTable({ title, data }: { title: String, data: Array<emailTableInterface> }) {

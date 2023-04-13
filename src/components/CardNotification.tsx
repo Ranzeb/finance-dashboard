@@ -1,5 +1,4 @@
-import { Card, CardBody, CardHeader, Text } from '@chakra-ui/react';
-import { Icon, createIcon } from '@chakra-ui/react'
+import { Card, CardHeader, Icon, Text } from '@chakra-ui/react';
 
 const CircleIcon = (props: any) => (
     <Icon viewBox='0 0 200 200' {...props}>
