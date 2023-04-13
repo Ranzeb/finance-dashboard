@@ -1,4 +1,4 @@
-import { ChakraProvider, HStack, Stack, VStack, Box, Icon, Text, Card, extendTheme, Flex } from '@chakra-ui/react';
+import { ChakraProvider, HStack, Stack, VStack, Box, Icon, Text, Card, extendTheme, Flex, SimpleGrid } from '@chakra-ui/react';
 import CardItem from './components/CardItem';
 import CardItemSlider from './components/CardItemSlider';
 import CardNotification from './components/CardNotification';
@@ -116,22 +116,22 @@ export default function Dashboard() {
 
     return (
         <Stack bg="#dfecf1">
-            <HStack margin="auto" spacing={{ base: 0, sm: 8 }}>
+            <HStack margin="auto" spacing={{ base: 0, sm: 0, md: 0, lg: 0, xl: 8, '2xl': 8 }}>
                 <Sidebar />
                 <VStack id='main-container' spacing={8}>
                     <Navbar />
-                    <Stack direction={{ base: 'column', sm: 'column', md: 'column', lg: 'column', xl: 'column', '2xl': 'row' }} spacing={8} justifyContent={'center'} alignItems={'center'}>
-                        <VStack spacing={8}>
+                    <Stack direction={{ base: 'column', sm: 'column', md: 'column', lg: 'column', xl: 'column', '2xl': 'row' }} spacing={8} >
+                        <VStack spacing={8} width={'100%'} justifyContent={'center'} alignItems={'center'} w={{ base: '100%', xl: '100%', '2xl': '200%' }}>
                             <Stack direction={'row'} w={'100%'} justifyContent={{ base: 'center', sm: 'end' }}>
                                 <Icon as={RiArrowDropLeftLine} boxSize={8} />
                                 <Icon as={RiArrowDropRightLine} boxSize={8} />
                             </Stack>
-                            <Stack direction={{ base: 'column', sm: 'column', md: 'row', lg: 'row', '2xl': 'row' }} display={'flex'} flexWrap={{ sm: 'unset', md: 'wrap', lg: 'wrap', xl: 'unset', '2xl': 'unset', base: 'unset' }} spacing={4}>
+                            <SimpleGrid columns={[1, null, 2, 4]} spacing={10}>
                                 <CardItemSlider title="Your bank balance" value="$143,624" iconName="MdOutlineAccountBalanceWallet" />
                                 <CardItemSlider title="Uncategorized transactions" value="12" iconName="FiPieChart" />
                                 <CardItemSlider title="Employees working today" value="7" iconName="TbCalendarTime" />
                                 <CardItemSlider title="This week's card spending" value="$3,287.49" iconName="BiCreditCard" />
-                            </Stack>
+                            </SimpleGrid>
                             <Stack direction={{ base: 'column', sm: 'column', md: 'column', lg: 'row', '2xl': 'row' }} width={'100%'} justifyContent={'center'} alignItems={'center'}>
                                 <VStack spacing={4} display={'flex'} flexDirection={'column'} height={'100%'}>
                                     <CardItem title="New clients" value="54" percentage={'+18.7%'} growth={true} />
@@ -151,7 +151,7 @@ export default function Dashboard() {
                                 data={emailData}
                             />
                         </VStack>
-                        <Stack direction={{ base: 'column', sm: 'column', md: 'column', lg: 'row', '2xl': 'column' }} spacing={12} justifyContent={'center'} alignItems={'center'} w={{ base: '80%', sm: '80%', md: '80%', lg: '100%' }}>
+                        <Stack direction={{ base: 'column', sm: 'column', md: 'column', lg: 'row', '2xl': 'column' }} spacing={12} justifyContent={'center'} alignItems={'center'}>
                             <CardStatus title={title} status={status} progressStatus={progressStatus} description1={description1} description2={description2} />
                             <ToDoList data={toDoData} />
                             <CardNotification title="Board Meeting" description={notificationDescription} time={new Date()} />
