@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#green-light {
+  position: relative;
+  top: 25%;
+}
+
+#card-item-badge {
+  font-size: 18px;
+  line-height: 25px;
+  margin: auto;
+  display: inline-block;
+  vertical-align: middle;
+  width: 80px;
+  height: 30px;
+  text-align: center;
+}

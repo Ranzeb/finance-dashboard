@@ -43,4 +43,9 @@
   align-items: center;
   text-align: center;
   min-height: 100vh;
+  margin-bottom: 100px;
+}
+
+#dropdown-sidebar {
+  margin: -100px 0 0 110px;
 }
