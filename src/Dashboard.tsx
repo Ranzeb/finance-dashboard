@@ -1,4 +1,4 @@
-import { Card, HStack, Icon, SimpleGrid, Stack, Text, VStack, extendTheme } from '@chakra-ui/react';
+import { Card, HStack, Icon, SimpleGrid, Stack, Text, VStack } from '@chakra-ui/react';
 import { AiOutlineClockCircle } from 'react-icons/ai';
 import { RiArrowDropLeftLine, RiArrowDropRightLine } from 'react-icons/ri';
 import CardItem from './components/CardItem';
@@ -23,6 +23,10 @@ import {
 import { Line } from "react-chartjs-2";
 import { BsClipboardCheck, BsClipboardData } from 'react-icons/bs';
 import { TfiTicket } from 'react-icons/tfi';
+import { MdOutlineAccountBalanceWallet } from 'react-icons/md';
+import { FiPieChart } from 'react-icons/fi';
+import { TbCalendarTime } from 'react-icons/tb';
+import { BiCreditCard } from 'react-icons/bi';
 
 
 export default function Dashboard() {
@@ -36,23 +40,11 @@ export default function Dashboard() {
         Tooltip
     ]);
 
-    const customTheme = extendTheme({
-        components: {
-            Progress: {
-                baseStyle: {
-                    filledTrack: {
-                        bg: 'white'
-                    }
-                }
-            }
-        }
-    })
-
     const emailData = [
-        { icon: 1, name: "Hannah Morgan", description: "Meeting scheduled", time: "1:24 PM" },
-        { icon: 2, name: "Megan Clark", description: "Update on a marketing campaign", time: "13:32 PM" },
-        { icon: 3, name: "Brandon Williams", description: "Designly 2.0 is about to launch", time: "Yesterday at 8:57 PM" },
-        { icon: 4, name: "Reid Smith", description: "My friend Julie loves dappr", time: "Yesterday at 8:49 PM" },
+        { icon: 'https://bit.ly/dan-abramov', name: "Hannah Morgan", description: "Meeting scheduled", time: "1:24 PM" },
+        { icon: 'https://bit.ly/sage-adebayo', name: "Megan Clark", description: "Update on a marketing campaign", time: "13:32 PM" },
+        { icon: 'https://bit.ly/prosper-baba', name: "Brandon Williams", description: "Designly 2.0 is about to launch", time: "Yesterday at 8:57 PM" },
+        { icon: 'https://bit.ly/code-beast', name: "Reid Smith", description: "My friend Julie loves dappr", time: "Yesterday at 8:49 PM" },
     ]
 
     const toDoData = [
@@ -124,10 +116,10 @@ export default function Dashboard() {
                                 <Icon as={RiArrowDropRightLine} boxSize={8} />
                             </Stack>
                             <SimpleGrid columns={[1, null, 2, 4]} spacing={10}>
-                                <CardItemSlider title="Your bank balance" value="$143,624" iconName="MdOutlineAccountBalanceWallet" />
-                                <CardItemSlider title="Uncategorized transactions" value="12" iconName="FiPieChart" />
-                                <CardItemSlider title="Employees working today" value="7" iconName="TbCalendarTime" />
-                                <CardItemSlider title="This week's card spending" value="$3,287.49" iconName="BiCreditCard" />
+                                <CardItemSlider title="Your bank balance" value="$143,624" icon={MdOutlineAccountBalanceWallet} />
+                                <CardItemSlider title="Uncategorized transactions" value="12" icon={FiPieChart} />
+                                <CardItemSlider title="Employees working today" value="7" icon={TbCalendarTime} />
+                                <CardItemSlider title="This week's card spending" value="$3,287.49" icon={BiCreditCard} />
                             </SimpleGrid>
                             <Stack
                                 direction={{ base: 'column', sm: 'column', md: 'column', lg: 'row', '2xl': 'row' }}

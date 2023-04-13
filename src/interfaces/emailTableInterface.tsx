@@ -1,5 +1,5 @@
 export default interface emailTableInterface {
-    icon: number,
+    icon: string,
     name: string,
     description: string,
     time: string

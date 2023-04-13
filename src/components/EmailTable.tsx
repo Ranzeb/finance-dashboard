@@ -3,13 +3,6 @@ import emailTableInterface from '../interfaces/emailTableInterface';
 
 function EmailTable({ title, data }: { title: String, data: Array<emailTableInterface> }) {
 
-    const emailData = [
-        { icon: 'https://bit.ly/dan-abramov', name: "Hannah Morgan", description: "Meeting scheduled", time: "1:24 PM" },
-        { icon: 'https://bit.ly/sage-adebayo', name: "Megan Clark", description: "Update on a marketing campaign", time: "13:32 PM" },
-        { icon: 'https://bit.ly/prosper-baba', name: "Brandon Williams", description: "Designly 2.0 is about to launch", time: "Yesterday at 8:57 PM" },
-        { icon: 'https://bit.ly/code-beast', name: "Reid Smith", description: "My friend Julie loves dappr", time: "Yesterday at 8:49 PM" },
-    ]
-
     return (
         <>
             <VStack bg="#d0e1e9" borderRadius={35} alignItems={{ base: 'center', sm: "baseline" }} w={{ base: '80%', sm: '80%', md: '80%', lg: '100%' }}>
@@ -17,10 +10,9 @@ function EmailTable({ title, data }: { title: String, data: Array<emailTableInte
                 <Box display={'contents'} alignItems={'center'} textColor='#515960'>
                     <Table variant="unstyled" size={{ base: 'sm', md: 'md', lg: 'md' }}>
                         <Tbody>
-                            {emailData.map((item) => {
-                                console.log(item);
+                            {data.map((item: emailTableInterface, idx: number) => {
                                 return (
-                                    <Tr>
+                                    <Tr key={idx}>
                                         <Td>
                                             <WrapItem ml={10} display={{ base: 'none', sm: 'none', md: 'flex', lg: 'flex' }}>
                                                 <Avatar src={item.icon} />

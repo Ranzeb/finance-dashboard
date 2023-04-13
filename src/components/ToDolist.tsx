@@ -1,17 +1,8 @@
 import { Card, HStack, Icon, Text, VStack } from '@chakra-ui/react';
-import { AiOutlineClockCircle } from 'react-icons/ai';
-import { BsClipboardCheck, BsClipboardData } from 'react-icons/bs';
-import { TfiTicket } from 'react-icons/tfi';
 import { toDoListInterface } from '../interfaces/toDoListInterface';
 
 
 function ToDoList({ data }: { data: Array<toDoListInterface> }) {
-    const toDoData = [
-        { icon: AiOutlineClockCircle, title: "Run Payroll", time: new Date() },
-        { icon: TfiTicket, title: "Review time off request", time: new Date() },
-        { icon: BsClipboardData, title: "Sign board resolution", time: new Date() },
-        { icon: BsClipboardCheck, title: "Finish onboarding Tony", time: new Date() },
-    ]
 
     const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -30,9 +21,9 @@ function ToDoList({ data }: { data: Array<toDoListInterface> }) {
     return (
         <VStack alignItems={'baseline'}>
             <Text as='b' fontSize={'2xl'} mb={6}>Your to-Do list</Text>
-            {toDoData.map((value: toDoListInterface) => {
+            {data.map((value: toDoListInterface, idx: number) => {
                 return (
-                    <HStack spacing={5}>
+                    <HStack key={idx} spacing={5}>
                         <Card bg="#000000" textAlign="left" borderRadius={25} width={'70px'} height={'70px'} justifyContent={'center'} color='white' alignItems={'center'}>
                             <Icon as={value.icon} boxSize={7} />
                         </Card>
