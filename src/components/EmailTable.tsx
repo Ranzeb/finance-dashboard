@@ -27,17 +27,17 @@ function EmailTable({ title, data }: { title: String, data: Array<emailTableInte
                                             </WrapItem>
                                         </Td>
                                         <Td textAlign={'center'}>
-                                            <WrapItem>
+                                            <WrapItem fontSize={{ base: 'md', md: 'md', lg: 'xl', xl: 'xl', '2xl': 'md' }}>
                                                 {item.name}
                                             </WrapItem>
                                         </Td>
                                         <Td textAlign={'center'}>
-                                            <WrapItem>
+                                            <WrapItem fontSize={{ base: 'md', md: 'md', lg: 'xl', xl: 'xl', '2xl': 'md' }}>
                                                 {item.description}
                                             </WrapItem>
                                         </Td>
                                         <Td textAlign={'end'}>
-                                            <WrapItem mr={10} display={'block'}>
+                                            <WrapItem mr={10} display={'block'} fontSize={{ base: 'md', md: 'md', lg: 'xl', xl: 'xl', '2xl': 'md' }}>
                                                 {item.time}
                                             </WrapItem>
                                         </Td>

@@ -29,7 +29,7 @@ function CardItem({ title, value, iconName }: { title: String, value: String, ic
                     <VStack ml={8} display={'inline-grid'}>
                         <Text as='b' fontSize={'3xl'}>{value}</Text>
                         <Box w={'60%'}>
-                            <Text fontSize={'md'}>{title}</Text>
+                            <Text fontSize={{ base: 'md', md: 'xl', lg: '2xl', xl: '2xl', '2xl': 'md' }}>{title}</Text>
                         </Box>
                     </VStack>
                 </VStack>
