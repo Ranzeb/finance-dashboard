@@ -14,7 +14,7 @@ function CardItem({ title, value, iconName }: { title: String, value: String, ic
     icons.set("BiCreditCard", BiCreditCard);
 
     return (
-        <Card bg="#d0e1e9" height={{ base: 200, xl: 250, '2xl': 200 }} width={{ base: 220, xl: 300, '2xl': 220 }} borderRadius={35} flex={{ base: '35%', sm: '35%', md: '35%', lg: '35%', xl: '50%', '2xl': '50%' }}>
+        <Card bg="#d0e1e9" height={{ base: 200, xl: 250, '2xl': 200 }} width={{ base: 220, xl: 300, '2xl': 220 }} borderRadius={35} flex={{ base: '100%', sm: '100%', md: '35%', lg: '35%', xl: '50%', '2xl': '50%' }}>
             <VStack mt={4} display={{ md: 'inline-grid' }}>
                 <Flex textAlign='center' w={'80%'} margin={'auto'}>
                     <Box>

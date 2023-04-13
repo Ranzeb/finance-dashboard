@@ -12,8 +12,8 @@ function EmailTable({ title, data }: { title: String, data: Array<emailTableInte
 
     return (
         <>
-            <VStack bg="#d0e1e9" textAlign='left' borderRadius={35} alignItems={"baseline"} w={{ base: '50%', sm: '80%', md: '80%', lg: '100%' }}>
-                <Text as='b' pl={4} pt={4} fontSize='2xl' textAlign={'left'} mb={4}>{title}</Text>
+            <VStack bg="#d0e1e9" borderRadius={35} alignItems={{ base: 'center', sm: "baseline" }} w={{ base: '80%', sm: '80%', md: '80%', lg: '100%' }}>
+                <Text as='b' pl={4} pt={4} fontSize='2xl' mb={4}>{title}</Text>
                 <Box display={'contents'} alignItems={'center'} textColor='#515960'>
                     <Table variant="unstyled" size={{ base: 'sm', md: 'md', lg: 'md' }}>
                         <Tbody>
@@ -22,7 +22,7 @@ function EmailTable({ title, data }: { title: String, data: Array<emailTableInte
                                 return (
                                     <Tr>
                                         <Td>
-                                            <WrapItem ml={10}>
+                                            <WrapItem ml={10} display={{ base: 'none', sm: 'none', md: 'flex', lg: 'flex' }}>
                                                 <Avatar src={item.icon} />
                                             </WrapItem>
                                         </Td>

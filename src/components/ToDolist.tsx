@@ -38,7 +38,7 @@ function ToDoList({ data }: { data: Array<toDoListInterface> }) {
                             <Icon as={value.icon} boxSize={7} />
                         </Card>
                         <VStack alignItems={'baseline'}>
-                            <Text as='b' fontSize={'xl'}>{value.title}</Text>
+                            <Text as='b' fontSize={{ base: 'md', md: 'xl', lg: '2xl', xl: '2xl', '2xl': 'md' }}>{value.title}</Text>
                             <Text>{formatAMPM(value.time)}</Text>
                         </VStack>
                     </HStack>

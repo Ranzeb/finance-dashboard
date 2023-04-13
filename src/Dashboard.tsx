@@ -116,17 +116,17 @@ export default function Dashboard() {
 
     return (
         <Stack bg="#dfecf1">
-            <HStack margin="auto" spacing={8}>
+            <HStack margin="auto" spacing={{ base: 0, sm: 8 }}>
                 <Sidebar />
                 <VStack id='main-container' spacing={8}>
                     <Navbar />
-                    <Stack direction={{ md: 'column', sm: 'column', lg: 'column', '2xl': 'row' }} spacing={8}>
+                    <Stack direction={{ base: 'column', sm: 'column', md: 'column', lg: 'column', xl: 'column', '2xl': 'row' }} spacing={8} justifyContent={'center'} alignItems={'center'}>
                         <VStack spacing={8}>
-                            <Stack direction={'row'} w={'100%'} justifyContent={'end'}>
+                            <Stack direction={'row'} w={'100%'} justifyContent={{ base: 'center', sm: 'end' }}>
                                 <Icon as={RiArrowDropLeftLine} boxSize={8} />
                                 <Icon as={RiArrowDropRightLine} boxSize={8} />
                             </Stack>
-                            <Stack direction={{ base: 'column', sm: 'column', md: 'row', lg: 'row', '2xl': 'row' }} display={'flex'} flexWrap={{ sm: 'wrap', md: 'wrap', lg: 'wrap', xl: 'unset', '2xl': 'unset', base: 'wrap' }} spacing={4}>
+                            <Stack direction={{ base: 'column', sm: 'column', md: 'row', lg: 'row', '2xl': 'row' }} display={'flex'} flexWrap={{ sm: 'unset', md: 'wrap', lg: 'wrap', xl: 'unset', '2xl': 'unset', base: 'unset' }} spacing={4}>
                                 <CardItemSlider title="Your bank balance" value="$143,624" iconName="MdOutlineAccountBalanceWallet" />
                                 <CardItemSlider title="Uncategorized transactions" value="12" iconName="FiPieChart" />
                                 <CardItemSlider title="Employees working today" value="7" iconName="TbCalendarTime" />
@@ -151,7 +151,7 @@ export default function Dashboard() {
                                 data={emailData}
                             />
                         </VStack>
-                        <Stack direction={{ base: 'column', sm: 'column', md: 'column', lg: 'row', '2xl': 'column' }} spacing={12} justifyContent={'center'} alignItems={'center'}>
+                        <Stack direction={{ base: 'column', sm: 'column', md: 'column', lg: 'row', '2xl': 'column' }} spacing={12} justifyContent={'center'} alignItems={'center'} w={{ base: '80%', sm: '80%', md: '80%', lg: '100%' }}>
                             <CardStatus title={title} status={status} progressStatus={progressStatus} description1={description1} description2={description2} />
                             <ToDoList data={toDoData} />
                             <CardNotification title="Board Meeting" description={notificationDescription} time={new Date()} />
